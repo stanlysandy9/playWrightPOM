@@ -16,7 +16,6 @@ for (const searchTextValid of searchData.searchTextValid){
     await homePage.searchField(searchTextValid);
 
     await expect(searchPage.searchResultsTitle).toBeVisible({ timeout: 5000 });
-    console.log(searchTextValid);
    await expect(searchPage.searchResultsDescriptionValid).toBeVisible({ timeout: 5000 });
 })
 }
@@ -31,7 +30,6 @@ for (const searchTextInvalid of searchData.searchTextInvalid){
     await homePage.searchField(searchTextInvalid);
 
     await expect(searchPage.searchResultsTitle).toBeVisible({ timeout: 5000 });
-    console.log(searchTextInvalid);
    await expect(searchPage.searchResultsDescriptionInvalid).toBeVisible({ timeout: 5000 });
    await expect(searchTextInvalidText).toBeVisible({ timeout: 5000 });
 })
