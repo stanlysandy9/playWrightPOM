@@ -1,0 +1,20 @@
+{
+
+"searchTextValid": [
+    "gray",
+    "white",
+    "black", 
+    "Jacket",
+    "striped top"
+],
+
+    "searchTextInvalid": [
+    "Onesie",
+    "T-Shirt",
+    "Stanly",
+    "43 black",
+    "Macbook Pro 15 inch ", 
+    "1234567890",
+    "!@#$%^&*()"
+]
+}
