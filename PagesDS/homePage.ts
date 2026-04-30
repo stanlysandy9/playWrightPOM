@@ -84,17 +84,22 @@ export class HomePage {
         this.card3 = page.getByAltText('We accept Mastercard');
         this.shopifyLink = page.getByRole('link',{name: 'Shopping Cart by Shopify'});      
     }
+    //Methods
 
+    //Navigate to home page
     async navigateToHomePage() {
         await this.page.goto(this.homePageURL);
     }
-         async searchField(searchText: string){
+    //Search for a product using the search field in the header
+    async searchField(searchText: string){
             await this.searchInput.fill(searchText);
             await this.searchIcon.click();
             await this.page.waitForURL(/search/, { timeout: 10000 });
          }
-
-
-
-
+    //Search for a product using the search option in the header
+    async searchOptionMethod(){
+        await this.searchInput.fill("Gray");
+        await this.searchOption.click();
+        await this.page.waitForURL(/search/, { timeout: 10000 }); 
+    }
     }
