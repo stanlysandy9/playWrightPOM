@@ -102,4 +102,7 @@ export class HomePage {
         await this.searchOption.click();
         await this.page.waitForURL(/search/, { timeout: 10000 }); 
     }
+    async NavigateToAboutUsPage(){
+        await this.aboutUsLink.click();
     }
+}

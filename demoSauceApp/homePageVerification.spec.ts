@@ -2,6 +2,7 @@ import { test, expect } from '@playwright/test';
 import { HomePage } from '../PagesDS/homePage';
 import { SearchPage } from '../PagesDS/searchpage';       
 import searchData from '../searchData.json';  
+import { AboutUsPage } from '../PagesDS/aboutUsPage';
 
 
 
@@ -46,4 +47,19 @@ test('Verify search functionality using the search option in the header', async 
     await expect(page).toHaveURL(/search/, { timeout: 5000 });
     await expect(page.getByRole('heading', { name: 'Search Results' })).toBeVisible({ timeout: 5000 });
     await expect(page.getByText(`Showing results for `)).toBeVisible({ timeout: 5000 });
+})
+
+test('Verify about us page', async ({ page }) => {
+   const homePage = new HomePage(page);
+   const aboutUsPage = new AboutUsPage(page);
+    await homePage.navigateToHomePage();
+   
+    await homePage.NavigateToAboutUsPage();
+    
+    await expect(aboutUsPage.aboutUsTitle).toBeVisible({ timeout: 5000 });
+    await expect(aboutUsPage.aboutUsDescriptionText1).toBeVisible({ timeout: 5000 });
+    await expect(aboutUsPage.aboutUsDescriptionText2).toBeVisible({ timeout: 5000 });
+    await expect(aboutUsPage.aboutUsDescriptionText3).toBeVisible({ timeout: 5000 });
+    await expect(aboutUsPage.aboutUsDescriptionText4).toBeVisible({ timeout: 5000 });
+    await expect(aboutUsPage.aboutUsDescriptionlink).toBeVisible({ timeout: 5000 });
 })
