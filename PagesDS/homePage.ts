@@ -42,17 +42,19 @@ export class HomePage {
     readonly card2: Locator;
     readonly card3: Locator;
     readonly shopifyLink: Locator;
+    readonly HomePageHeader: Locator;
 
     constructor(page: Page) {
         this.page = page;
-        this.homePageURL    = "https://sauce-demo.myshopify.com/";
+        this.homePageURL = "https://sauce-demo.myshopify.com/";
+        this.HomePageHeader = page.getByAltText('Sauce Demo');
 
         //Header locators
-        this.searchIcon =  page.locator('#search-submit')
+        this.searchIcon = page.locator('#search-submit')
         this.searchInput = page.getByRole('textbox', { name: 'Search' });
         this.searchOption = page.locator('a').filter({ hasText: 'Search' }).first();
         this.aboutUsLink = page.locator('a').filter({ hasText: 'About Us' }).first();
-        this.loginLink = page.locator('a').filter({ hasText: 'Log In' }).first();
+        this.loginLink = page.locator('#customer_login_link').first();
         this.signUpLink = page.locator('a').filter({ hasText: 'Sign up' }).first();
         this.mycartButton = page.getByRole('link', { name: 'My Cart' });
         this.checkOutButton = page.getByRole('link', { name: 'Check Out' });
@@ -71,7 +73,7 @@ export class HomePage {
         this.facebookLink = page.locator("//a[@class='facebook ']").first();
         this.twitterLink = page.locator("//a[@class='twitter ']").first();
         this.pinterestLink = page.locator("//a[@class='instagram ']").first();
-        this.blogLink2 = page.locator("//a[@class='rss ']").first();                           
+        this.blogLink2 = page.locator("//a[@class='rss ']").first();
 
         //footer locators       
         this.aboutUsDescription = page.getByText(', an awesome new way to make your Shopify site social. Sauce allows you to let ')
@@ -82,7 +84,7 @@ export class HomePage {
         this.card1 = page.getByAltText('We accept Amex');
         this.card2 = page.getByAltText('We accept Visa');
         this.card3 = page.getByAltText('We accept Mastercard');
-        this.shopifyLink = page.getByRole('link',{name: 'Shopping Cart by Shopify'});      
+        this.shopifyLink = page.getByRole('link', { name: 'Shopping Cart by Shopify' });
     }
     //Methods
 
@@ -91,18 +93,16 @@ export class HomePage {
         await this.page.goto(this.homePageURL);
     }
     //Search for a product using the search field in the header
-    async searchField(searchText: string){
-            await this.searchInput.fill(searchText);
-            await this.searchIcon.click();
-            await this.page.waitForURL(/search/, { timeout: 10000 });
-         }
+    async searchField(searchText: string) {
+        await this.searchInput.fill(searchText);
+        await this.searchIcon.click();
+        await this.page.waitForURL(/search/, { timeout: 10000 });
+    }
     //Search for a product using the search option in the header
-    async searchOptionMethod(){
+    async searchOptionMethod() {
         await this.searchInput.fill("Gray");
         await this.searchOption.click();
-        await this.page.waitForURL(/search/, { timeout: 10000 }); 
+        await this.page.waitForURL(/search/, { timeout: 10000 });
     }
-    async NavigateToAboutUsPage(){
-        await this.aboutUsLink.click();
-    }
+  
 }
