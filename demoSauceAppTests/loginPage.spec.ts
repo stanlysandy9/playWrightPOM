@@ -1,9 +1,9 @@
 import {expect, test} from '@playwright/test';
-import { HomePage } from '../PagesDS/homePage';
-import { LoginPage } from '../PagesDS/loginPage';
+import { HomePage } from '../DemoSaucePages/homePage';
+import { LoginPage } from '../DemoSaucePages/loginPage';
 import 'dotenv/config';
-import searchData from '../searchData.json'
-import { AccountPage } from '../PagesDS/accountPage';
+import searchData from '../demoSauceTestData/searchData.json'
+import { AccountPage } from '../DemoSaucePages/accountPage';
 
 
 

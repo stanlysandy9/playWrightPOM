@@ -1,9 +1,9 @@
 import { test, expect } from '@playwright/test';
-import { HomePage } from '../PagesDS/homePage';
-import { SearchPage } from '../PagesDS/searchpage';
-import searchData from '../searchData.json';
-import { AboutUsPage } from '../PagesDS/aboutUsPage';
-import { LoginPage } from '../PagesDS/loginPage';
+import { HomePage } from '../DemoSaucePages/homePage';
+import { SearchPage } from '../DemoSaucePages/searchpage';
+import searchData from '../demoSauceTestData/searchData.json';
+import { AboutUsPage } from '../DemoSaucePages/aboutUsPage';
+import { LoginPage } from '../DemoSaucePages/loginPage';
 
 
 for (const searchTextValid of searchData.searchTextValid) {
