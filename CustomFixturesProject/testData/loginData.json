@@ -1,0 +1,7 @@
+{"invalidUsername": ["standard_user", "QA5!678$", "test", "Stanly", "QAUSER", "#$^&*", "4567", "QAlengthyuserId"],
+"invalidPassword": ["admin1233", "12#$%^&*()3536", "tyu 456!", "3456789", "ertyuibnmdsfjbkdsjbfjdbsf"],
+
+"validUserId": "Admin",
+"validPassword": "admin123"}
+
+ 

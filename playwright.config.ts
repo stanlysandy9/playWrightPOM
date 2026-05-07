@@ -16,12 +16,19 @@ export default defineConfig({
   
   projects: [
     {
-      name: 'demo Sauce',
-      testDir: './demoSauceAppTests',
+      name: 'Projects',
+      testDir: './',
+      use: { ...devices['Desktop Chrome'], headless: true },
     },
     {
       name: 'swag Labs',
-      testDir: './SwagLabsTests',
+      //testDir: './demoSauceProject\demoSauceAppTests',
+      use: { ...devices['Desktop Chrome'], headless: true },
+    },
+    {
+      name: 'Orange HRM Project',
+     // testDir: '../SwagLabsProject\swagLabsTests',
+      use: { ...devices['Desktop Chrome'], headless: true },
     },
     
   ],
@@ -34,7 +41,7 @@ export default defineConfig({
   /* Opt out of parallel tests on CI. */
   workers: process.env.CI ? 1 : 1,
   /* Set test timeout to 15 seconds */
-  timeout: 15000,
+  timeout: 30000,
   /* Reporter to use. See https://playwright.dev/docs/test-reporters */
   reporter: [['html',{open: 'always'}]],
   /* Shared settings for all the projects below. See https://playwright.dev/docs/api/class-testoptions. */
@@ -48,14 +55,14 @@ export default defineConfig({
   },
 
   /* Configure projects for major browsers */
-  projects: [
-    {
-      name: 'chromium',
-      use: { ...devices['Desktop Chrome'],
-        headless: true,
-       },
+  // projects: [
+  //   {
+  //     name: 'chromium',
+  //     use: { ...devices['Desktop Chrome'],
+  //       headless: true,
+  //      },
       
-    },
+  //   },
 
    /* {
       name: 'firefox',
@@ -86,7 +93,7 @@ export default defineConfig({
     //   name: 'Google Chrome',
     //   use: { ...devices['Desktop Chrome'], channel: 'chrome' },
     // },
-  ],
+  //],
 
   /* Run your local dev server before starting the tests */
   // webServer: {

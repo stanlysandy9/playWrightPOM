@@ -5,7 +5,7 @@ import { LoginPage } from '../SwagLabsPages/LoginPage';
 import { ProductPage } from '../SwagLabsPages/ProductPage';
 import { CartPage } from '../SwagLabsPages/CartPage';
 import { HomePageswaglabs } from '../SwagLabsPages/HomePage';
-import {test, expect} from '../SwagLabsFixtures/BeforeAfterTestsFixtures';
+import {test, expect} from '../swagLabs-Fixtures/BeforeAfterTestsFixtures';
 
 test.beforeEach('Add product to Cart', async ({ page }) => {
 

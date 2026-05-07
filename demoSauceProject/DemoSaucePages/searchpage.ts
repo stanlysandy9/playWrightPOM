@@ -1,5 +1,5 @@
 import { Page, Locator } from "@playwright/test";
-import searchData from '../demoSauceTestData/searchData.json'; 
+import searchData from '../demoSauceAppTests/demoSauceTestData/searchData.json'; 
 
 
 export class SearchPage {
