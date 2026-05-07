@@ -50,5 +50,4 @@ test ('webhook test',({page})=>
 {
 console.log("WebHook Testing with CD")
 console.log("WebHook Testing with CD 2")
-console.log("WebHook Testing with CD 2")
 })
