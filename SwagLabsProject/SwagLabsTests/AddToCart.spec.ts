@@ -7,6 +7,8 @@ import { CartPage } from '../SwagLabsPages/CartPage';
 import { HomePageswaglabs } from '../SwagLabsPages/HomePage';
 import {test, expect} from '../swagLabs-Fixtures/BeforeAfterTestsFixtures';
 
+test.use({storageState: 'Noauth.json'});
+
 test.beforeEach('Add product to Cart', async ({ page }) => {
 
     const loginPage = new LoginPage(page);

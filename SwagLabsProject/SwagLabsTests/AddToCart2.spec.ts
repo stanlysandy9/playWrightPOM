@@ -19,6 +19,7 @@ import {test} from '../swagLabs-Fixtures/LoginLogoutHookAsFixtures';
 //     await expect(page.getByText('Swag Labs').first()).toBeAttached();
 
 // })
+test.use({storageState: 'Noauth.json'});
 
 test('Add Product to cart functionality verification', async ({ page, loginHook }) => {
     const homePage = new HomePageswaglabs(page);

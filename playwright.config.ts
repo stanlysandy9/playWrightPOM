@@ -13,22 +13,28 @@ import { defineConfig, devices } from '@playwright/test';
  * See https://playwright.dev/docs/test-configuration.
  */
 export default defineConfig({
+
+  globalSetup: "./global-setup",
   
   projects: [
+
+   
     {
-      name: 'Projects',
+      name: 'Orange HRM Project',
       testDir: './',
-      use: { ...devices['Desktop Chrome'], headless: true },
+
+      use: { ...devices['Desktop Firefox'], headless: true },
+      
     },
     // {
-    //   name: 'swag Labs',
-    //   //testDir: './demoSauceProject\demoSauceAppTests',
+    //   name: 'demoSauceProject',
+    //   testDir: './demoSauceProject',
     //   use: { ...devices['Desktop Chrome'], headless: true },
     // },
     // {
-    //   name: 'Orange HRM Project',
-    //  // testDir: '../SwagLabsProject\swagLabsTests',
-    //   use: { ...devices['Desktop Chrome'], headless: true },
+    //   name: 'SwagLabsProject',
+    //   testDir: './SwagLabsProject',
+    //   use: { ...devices['Desktop Safari'], headless: true },
     // },
     
   ],
@@ -51,6 +57,7 @@ export default defineConfig({
 
     /* Collect trace when retrying the failed test. See https://playwright.dev/docs/trace-viewer */
     trace: 'off',
+    storageState: './LoginAuth.json'
     
   },
 

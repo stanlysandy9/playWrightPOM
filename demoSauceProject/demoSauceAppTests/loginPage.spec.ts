@@ -5,7 +5,7 @@ import 'dotenv/config';
 import searchData from '../demoSauceTestData/searchData.json'
 import { AccountPage } from '../DemoSaucePages/accountPage';
 
-
+test.use({storageState: 'Noauth.json'});
 
 test ('Verify login functionality with valid credentials', async  ({page})=>{
 

@@ -34,20 +34,18 @@
 import {  test } from '../fixtures/hrmLoginPageFixtures'
 import { HrmHomePage } from '../pages/HrmHomePage';
 import { expect } from '@playwright/test';
+import { HrmLoginPage } from '../pages/HrmLoginPage';
 
 
-test('HRM Login Verification', async ({ page, loginFixture,logoutFixture }) => {
+test('HRM Login Verification', async ({ page,logoutFixture }) => {
     
     const hrmHomePage = new HrmHomePage(page);
+    const hrmLoginPage = new HrmLoginPage(page);
 
 
-    await loginFixture.loginBtn.click();
+    //await loginFixture.loginBtn.click();
+    await hrmLoginPage.navigateToHomePage();
     await expect(hrmHomePage.dashBoardHeader).toBeVisible();
 
-
-})
-test ('webhook test',({page})=>
-{
-console.log("WebHook Testing with CD")
 
 })

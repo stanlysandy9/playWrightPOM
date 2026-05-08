@@ -5,6 +5,8 @@ import searchData from '../demoSauceTestData/searchData.json';
 import { AboutUsPage } from '../DemoSaucePages/aboutUsPage';
 import { LoginPage } from '../DemoSaucePages/loginPage';
 
+test.use({storageState: 'Noauth.json'});
+
 
 for (const searchTextValid of searchData.searchTextValid) {
     test('Verify search functionality with valid search text: ' + searchTextValid, async ({ page }) => {
@@ -77,7 +79,7 @@ test('Verify about us page', async ({ page }) => {
     await homePage.HomePageHeader.click();
     await homePage.aboutUsLink.click();
 
-    await expect(aboutUsPage.aboutUsTitle).toBeVisible({ timeout: 5000 });
+    await expect(aboutUsPage.aboutUsTitle).toBeVisible();
     await expect(aboutUsPage.aboutUsDescriptionText1).toBeVisible({ timeout: 5000 });
     await expect(aboutUsPage.aboutUsDescriptionText2).toBeVisible({ timeout: 5000 });
     await expect(aboutUsPage.aboutUsDescriptionText3).toBeVisible({ timeout: 5000 });
@@ -94,7 +96,7 @@ test('Verify about us page', async ({ page }) => {
     await homePage.HomePageHeader.click();
     await homePage.aboutUsLink2.click();
 
-    await expect(aboutUsPage.aboutUsTitle).toBeVisible({ timeout: 5000 });
+    await expect(aboutUsPage.aboutUsTitle).toBeVisible();
     await expect(aboutUsPage.aboutUsDescriptionText1).toBeVisible({ timeout: 5000 });
     await expect(aboutUsPage.aboutUsDescriptionText2).toBeVisible({ timeout: 5000 });
     await expect(aboutUsPage.aboutUsDescriptionText3).toBeVisible({ timeout: 5000 });
@@ -111,7 +113,7 @@ test('Verify about us page', async ({ page }) => {
     await homePage.HomePageHeader.click();
     await homePage.aboutUsButton1.click();
 
-    await expect(aboutUsPage.aboutUsTitle).toBeVisible({ timeout: 5000 });
+    await expect(aboutUsPage.aboutUsTitle).toBeVisible();
     await expect(aboutUsPage.aboutUsDescriptionText1).toBeVisible({ timeout: 5000 });
     await expect(aboutUsPage.aboutUsDescriptionText2).toBeVisible({ timeout: 5000 });
     await expect(aboutUsPage.aboutUsDescriptionText3).toBeVisible({ timeout: 5000 });
@@ -128,7 +130,7 @@ test('Verify about us page', async ({ page }) => {
     await homePage.HomePageHeader.click();
     await homePage.aboutUsButton2.click();
 
-    await expect(aboutUsPage.aboutUsTitle).toBeVisible({ timeout: 5000 });
+    await expect(aboutUsPage.aboutUsTitle).toBeVisible();
     await expect(aboutUsPage.aboutUsDescriptionText1).toBeVisible({ timeout: 5000 });
     await expect(aboutUsPage.aboutUsDescriptionText2).toBeVisible({ timeout: 5000 });
     await expect(aboutUsPage.aboutUsDescriptionText3).toBeVisible({ timeout: 5000 });
