@@ -1,6 +1,6 @@
 import {test as baseTest} from "@playwright/test";
 import { LoginPage } from "../SwagLabsPages/LoginPage";
-import loginData from '../swagLabsTestData/logindata.json'
+import loginData from '../SwagLabsTestData/logindata.json'
 
 type Hooks={
 

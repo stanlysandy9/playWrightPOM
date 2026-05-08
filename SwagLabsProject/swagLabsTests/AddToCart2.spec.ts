@@ -1,5 +1,5 @@
 import {  expect } from '@playwright/test';
-import loginData from '../swagLabsTestData/logindata.json';
+import logindata from '../SwagLabsTestData/logindata.json';
 import 'dotenv/config';
 import { LoginPage } from '../SwagLabsPages/LoginPage';
 import { ProductPage } from '../SwagLabsPages/ProductPage';

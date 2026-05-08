@@ -1,5 +1,5 @@
 //import { test, expect } from '@playwright/test';
-import loginData from '../swagLabsTestData/logindata.json';
+import logindata from '../SwagLabsTestData/logindata.json';
 import 'dotenv/config';
 import { LoginPage } from '../SwagLabsPages/LoginPage';
 import { ProductPage } from '../SwagLabsPages/ProductPage';
@@ -12,8 +12,8 @@ test.beforeEach('Add product to Cart', async ({ page }) => {
     const loginPage = new LoginPage(page);
 
     await page.goto(process.env.SWAGLABTESTURL!)
-    await loginPage.userIdField.fill(loginData.UserId);
-    await loginPage.passwordField.fill(loginData.Password);
+    await loginPage.userIdField.fill(logindata.UserId);
+    await loginPage.passwordField.fill(logindata.Password);
     await loginPage.loginBtn.click();
 
     await expect(page.getByText('Swag Labs').first()).toBeAttached();
