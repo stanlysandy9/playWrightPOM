@@ -20,16 +20,16 @@ export default defineConfig({
       testDir: './',
       use: { ...devices['Desktop Chrome'], headless: true },
     },
-    {
-      name: 'swag Labs',
-      //testDir: './demoSauceProject\demoSauceAppTests',
-      use: { ...devices['Desktop Chrome'], headless: true },
-    },
-    {
-      name: 'Orange HRM Project',
-     // testDir: '../SwagLabsProject\swagLabsTests',
-      use: { ...devices['Desktop Chrome'], headless: true },
-    },
+    // {
+    //   name: 'swag Labs',
+    //   //testDir: './demoSauceProject\demoSauceAppTests',
+    //   use: { ...devices['Desktop Chrome'], headless: true },
+    // },
+    // {
+    //   name: 'Orange HRM Project',
+    //  // testDir: '../SwagLabsProject\swagLabsTests',
+    //   use: { ...devices['Desktop Chrome'], headless: true },
+    // },
     
   ],
   /* Run tests in files in parallel */
