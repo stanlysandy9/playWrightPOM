@@ -54,11 +54,9 @@ test('RHS menu Verification', async ({ page, loginFixture }) => {
     await expect(hrmRhsMenu.claimMenuItem).not.toBeVisible();
     await expect(hrmRhsMenu.buzzMenuItem).not.toBeVisible();
 
-<<<<<<< HEAD
-    
-=======
+
     console.log("search is working as expected for")
->>>>>>> f4d090e3afed45fd4b1f23ff69521930889311a0
+
     
 
 
