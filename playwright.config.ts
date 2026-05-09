@@ -14,7 +14,7 @@ import { defineConfig, devices } from '@playwright/test';
  */
 export default defineConfig({
 
-  globalSetup: "./global-setup.ts",
+  globalSetup: "./global-setup",
   globalTeardown:"./global-teardown.ts",
  
   projects: [

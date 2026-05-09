@@ -3,6 +3,7 @@ import { RhsMenu } from "../pages/RhsMenu";
 import { HrmHomePage } from '../pages/HrmHomePage'
 import { test as base } from '@playwright/test'
 import { HrmLoginPage } from "../pages/HrmLoginPage";
+import { HrmBuzzPage } from "../pages/HrmBuzzPage";
 
 
 
@@ -12,6 +13,7 @@ type Myfixtures = {
     rhsMenu: RhsMenu;
     hrmHomePage: HrmHomePage;
     hrmLoginPage: HrmLoginPage;
+    hrmBuzzPage: HrmBuzzPage;
 
 };
 export const constTest = base.extend<Myfixtures>({
@@ -33,6 +35,10 @@ export const constTest = base.extend<Myfixtures>({
     hrmLoginPage: async ({ page }, use) => {
 
         await use(new HrmLoginPage(page));
+    },
+    hrmBuzzPage: async({page},use)=>{
+
+        await use(new HrmBuzzPage(page));
     }
 
 });
