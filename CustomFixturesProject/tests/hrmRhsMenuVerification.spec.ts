@@ -1,15 +1,21 @@
+import { verify } from 'node:crypto';
 import { test } from '../fixtures/hrmLoginPageFixtures'
+import { constTest } from '../fixtures/hrmConstFixtures'
 import { HrmLoginPage } from '../pages/HrmLoginPage'
 import { HrmPageMainHeader } from '../pages/HrmPageMainHeader';
 import { RhsMenu } from '../pages/RhsMenu';
-import {expect} from '@playwright/test'
+import { expect } from '@playwright/test'
+import { LoginPage } from '../../SwagLabsProject/SwagLabsPages/LoginPage';
+import { get } from 'node:http';
+
+
 
 test('RHS menu Verification', async ({ page }) => {
     const hrmLoginPage = new HrmLoginPage(page);
     const hrmRhsMenu = new RhsMenu(page);
 
     //Login to Application 
-   // await loginFixture.loginBtn.click();
+    // await loginFixture.loginBtn.click();
 
     //Verification of RHS menu expand and collapse functionality)
     await hrmLoginPage.navigateToHomePage();
@@ -41,7 +47,7 @@ test('RHS menu Verification', async ({ page }) => {
     await expect(hrmRhsMenu.buzzMenuItem).not.toBeVisible();
 
     //clearing the previously entered text
-    await hrmRhsMenu.searchFld.clear(); 
+    await hrmRhsMenu.searchFld.clear();
 
     //using single letter R (lowercase)
     await hrmRhsMenu.searchFld.fill('r');
@@ -57,9 +63,9 @@ test('RHS menu Verification', async ({ page }) => {
     await expect(hrmRhsMenu.directoryMenuItm).toBeVisible();//search Result expected
     await expect(hrmRhsMenu.claimMenuItem).not.toBeVisible();
     await expect(hrmRhsMenu.buzzMenuItem).not.toBeVisible();
-    
+
     //Verify search with invalid search keyword
-    await hrmRhsMenu.searchFld.clear(); 
+    await hrmRhsMenu.searchFld.clear();
 
     //using single letter R (lowercase)
     await hrmRhsMenu.searchFld.fill('Customer Page');
@@ -77,7 +83,7 @@ test('RHS menu Verification', async ({ page }) => {
     await expect(hrmRhsMenu.claimMenuItem).not.toBeVisible();
     await expect(hrmRhsMenu.buzzMenuItem).not.toBeVisible();
 
-    await hrmRhsMenu.searchFld.clear(); 
+    await hrmRhsMenu.searchFld.clear();
 
     //using valid search keyword
     await hrmRhsMenu.searchFld.fill('Dashboard');
@@ -95,19 +101,41 @@ test('RHS menu Verification', async ({ page }) => {
     await expect(hrmRhsMenu.claimMenuItem).not.toBeVisible();
     await expect(hrmRhsMenu.buzzMenuItem).not.toBeVisible();
     //clear search field
-    await hrmRhsMenu.searchFld.clear(); 
+    await hrmRhsMenu.searchFld.clear();
 
 })
-test ('Verify RHS menu actions', async ({page})=>{
+test('Verify RHS menu actions', async ({ page }) => {
 
-    const hrmPageMainHeader =new HrmPageMainHeader(page);
-    const rhsMenu =new RhsMenu(page);
-    const hrmLoginPage= new HrmLoginPage(page);
+
+    const hrmLoginPage = new HrmLoginPage(page);
 
     await hrmLoginPage.navigateToHomePage();
 
-    
+})
+/* This is to verify if the application is allowing to navigate to respective pages when clicking on 
+ RHS menu actions */
+constTest('verify rhs menu list navigation', async ({ page, rhsMenu, hrmLoginPage, hrmPageMainHeaders }) => {
 
-
+    await hrmLoginPage.navigateToHomePage();
+    await rhsMenu.adminMenuItm.click();
+    await expect(hrmPageMainHeaders.adminPageHdr).toBeVisible();
+    await rhsMenu.pimMenuItm.click();
+    await expect(hrmPageMainHeaders.pimPageHdr).toBeVisible();
+    await rhsMenu.leaveMenuItm.click();
+    await expect(hrmPageMainHeaders.leavePageHdr).toBeVisible();
+    await rhsMenu.recruitmentMenuItm.click();
+    await expect(hrmPageMainHeaders.recruitmentPageHdr).toBeVisible();
+    await rhsMenu.performanceMenuItm.click();
+    await expect(hrmPageMainHeaders.performancePageHdr).toBeVisible();
+    await rhsMenu.dashboardMenuItm.click();
+    await expect(hrmPageMainHeaders.dashBoardPageHdr).toBeVisible();
+    await rhsMenu.maintenenceMenuItm.click();
+    await expect(page).toHaveURL(/maintenance/)
+    await expect(hrmPageMainHeaders.maintenancepageHdr).not.toBeVisible();
+    await page.goBack();
+    await rhsMenu.claimMenuItem.click();
+    await expect(hrmPageMainHeaders.claimPageHdr).toBeVisible();
+    await rhsMenu.buzzMenuItem.click();
+    await expect(hrmPageMainHeaders.buzzPageHdr).toBeVisible();
 
 })

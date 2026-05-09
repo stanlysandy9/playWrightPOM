@@ -24,7 +24,7 @@ export class HrmPageMainHeader {
         this.page = page;
         this.adminPageHdr=page.getByRole('heading',{name:'User Management'})
         this.pimPageHdr=page.getByRole('heading',{name:'PIM'})
-        this.leavePageHdr=page.getByRole('heading',{name:'Leave'})
+        this.leavePageHdr=page.getByRole('heading',{name:'Leave'}).first();
         this.TimePageHdr=page.getByRole('heading',{name:'Timesheets'})
         this.recruitmentPageHdr=page.getByRole('heading',{name:'Recruitment'})
         this.myInfoPageHdr=page.getByRole('heading',{name:'PIM'})
@@ -32,8 +32,8 @@ export class HrmPageMainHeader {
         this.dashBoardPageHdr=page.getByRole('heading',{name:'Dashboard'})
         this.directoryPageHdr=page.getByRole('heading',{name:'Directory'})
         this.maintenancepageHdr=page.getByRole('heading',{name:'Maintenance'})
-        this.claimPageHdr=page.getByRole('heading',{name:'Claim'})
-        this.buzzPageHdr=page.getByRole('heading',{name:'Buzz'})
+        this.claimPageHdr=page.getByRole('heading',{name:'Claim'}).first();
+        this.buzzPageHdr=page.getByRole('heading',{name:'Buzz'}).first();
 
 
 

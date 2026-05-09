@@ -3,7 +3,8 @@ import { Browser, chromium, Page,expect } from "@playwright/test";
 import { HrmLoginPage } from "./CustomFixturesProject/pages/HrmLoginPage";
 import { HrmHomePage } from "./CustomFixturesProject/pages/HrmHomePage";
 
- async function setUp(){
+ async function setUp({}){
+    
  const browser:Browser= await chromium.launch();
  const context= await browser.newContext();
 const page:Page= await context.newPage();

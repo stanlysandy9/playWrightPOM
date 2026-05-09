@@ -37,7 +37,7 @@ import { expect } from '@playwright/test';
 import { HrmLoginPage } from '../pages/HrmLoginPage';
 
 
-test('HRM Login Verification', async ({ page,logoutFixture }) => {
+test('HRM Login Verification', async ({ page,}) => {
     
     const hrmHomePage = new HrmHomePage(page);
     const hrmLoginPage = new HrmLoginPage(page);

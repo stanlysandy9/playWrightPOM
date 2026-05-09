@@ -25,7 +25,7 @@ export class RhsMenu {
     constructor(page: Page) {
         this.page = page;
 
-        this.rhsMenuCollapseIcon = page.locator('i.oxd-icon.bi-chevron-left');
+        this.rhsMenuCollapseIcon = page.locator('.oxd-icon.bi-chevron-left'); //oxd-icon bi-chevron-left
         this.rhsMenuExpandIcon = page.locator('i.oxd-icon.bi-chevron-right');
         this.searchFld = page.getByPlaceholder('Search');
         this.adminMenuItm = page.locator('.oxd-main-menu-item--name').getByText('Admin');
